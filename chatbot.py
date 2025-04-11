@@ -2,6 +2,8 @@ from flask import Flask, render_template, request, jsonify
 from transformers import AutoModelForCausalLM, AutoTokenizer
 import torch
 import json
+import re
+from datetime import datetime
 
 app = Flask(__name__)
 
@@ -11,7 +13,11 @@ model = AutoModelForCausalLM.from_pretrained("microsoft/DialoGPT-small")
 with open("data/products.json", "r") as f:
     product_data = json.load(f)
 
+
 user_histories = {}
+
+def preprocess_text(text):
+    return re.sub(r"[^a-zA-Z0-9 ]", "", text.lower())
 
 def get_ai_reply(user_input, user_id="user"):
     if user_id not in user_histories:
@@ -28,12 +34,21 @@ def get_ai_reply(user_input, user_id="user"):
     return response
 
 def match_product_keywords(message):
-    message = message.lower()
+    message = preprocess_text(message)
     matched = []
     for product in product_data:
         if any(keyword in message for keyword in product["keywords"]):
             matched.append(product)
     return matched
+
+def time_based_greeting():
+    hour = datetime.now().hour
+    if hour < 12:
+        return "Good morning! How can I help you today?"
+    elif hour < 18:
+        return "Good afternoon! What are you looking for today?"
+    else:
+        return "Good evening! Need help finding the right product?"
 
 @app.route('/')
 def home():
@@ -45,12 +60,15 @@ def chat():
     user_message = data.get("message", "")
     user_id = data.get("user_id", "default_user")
 
-    matched_products = match_product_keywords(user_message)
-    if matched_products:
-        product = matched_products[0]
-        bot_reply = f"{product['name']}: {product['description']}"
+    if user_message.strip().lower() in ["hi", "hello"]:
+        bot_reply = time_based_greeting()
     else:
-        bot_reply = get_ai_reply(user_message, user_id)
+        matched_products = match_product_keywords(user_message)
+        if matched_products:
+            product = matched_products[0]
+            bot_reply = f"{product['name']} - {product['description']}. Price: {product.get('price', 'N/A')}."
+        else:
+            bot_reply = get_ai_reply(user_message, user_id)
 
     return jsonify({"reply": bot_reply})
 
