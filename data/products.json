@@ -1,0 +1,38 @@
+[
+    {
+      "name": "Velvet Matte Lipstick",
+      "description": "A long-lasting, creamy matte lipstick available in bold and nude shades.",
+      "keywords": ["lipstick", "matte", "bold", "nude"]
+    },
+    {
+      "name": "Hydrating Lip Gloss",
+      "description": "Non-sticky gloss with vitamin E for smooth, glossy lips – perfect for dry lips.",
+      "keywords": ["lip gloss", "gloss", "hydrating", "dry lips"]
+    },
+    {
+      "name": "Flawless Finish Foundation",
+      "description": "Lightweight full-coverage foundation available in 12 skin tones.",
+      "keywords": ["foundation", "coverage", "skin tone", "flawless"]
+    },
+    {
+      "name": "Smudge-Proof Eyeliner",
+      "description": "Waterproof and smudge-resistant eyeliner for sharp, long-lasting looks.",
+      "keywords": ["eyeliner", "waterproof", "smudge"]
+    },
+    {
+      "name": "Volumizing Mascara",
+      "description": "Lift and add volume to your lashes with our smudge-free mascara.",
+      "keywords": ["mascara", "volumizing", "lashes"]
+    },
+    {
+      "name": "Rosy Glow Blush",
+      "description": "A soft powder blush in rose, coral, and peach tones for a natural glow.",
+      "keywords": ["blush", "rosy", "peach", "coral"]
+    },
+    {
+      "name": "Radiant Highlighter",
+      "description": "Champagne-toned highlighter for cheekbones, brow bones, and more.",
+      "keywords": ["highlighter", "glow", "radiant", "champagne"]
+    }
+  ]
+  
