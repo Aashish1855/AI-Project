@@ -62,15 +62,18 @@ def chat():
 
     if user_message.strip().lower() in ["hi", "hello"]:
         bot_reply = time_based_greeting()
-    else:
+    elif user_message.strip().lower() not in ["hi", "hello"]:
         matched_products = match_product_keywords(user_message)
         if matched_products:
             product = matched_products[0]
             bot_reply = f"{product['name']} - {product['description']}. Price: {product.get('price', 'N/A')}."
         else:
             bot_reply = get_ai_reply(user_message, user_id)
+    else:
+        bot_reply="Sorry can not understand it"
 
     return jsonify({"reply": bot_reply})
+
 
 if __name__ == '__main__':
     app.run(debug=True)
