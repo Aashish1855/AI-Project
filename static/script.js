@@ -1,28 +1,43 @@
-function appendMessage(sender, message) {
-    let chatBox = document.getElementById("chat-box");
-    let msgDiv = document.createElement("div");
-    msgDiv.innerHTML = `<strong>${sender}:</strong> ${message}`;
-    msgDiv.style.margin = "5px 0";
-    chatBox.appendChild(msgDiv);
-    chatBox.scrollTop = chatBox.scrollHeight;
-}
+async function sendMessage() {
+    const userInput = document.getElementById('user-input');
+    const chatBox = document.getElementById('chat-box');
+    const message = userInput.value.trim();
+  
+    if (!message) return;
+  
 
-function sendMessage() {
-    let input = document.getElementById("user-input");
-    let message = input.value.trim();
-    if (message === "") return;
-    
-    appendMessage("You", message);
-    input.value = "";
-    
-    fetch("/chat", {
-        method: "POST",
+    const userMsg = document.createElement('div');
+    userMsg.className = 'message user-message';
+    userMsg.textContent = message;
+    chatBox.appendChild(userMsg);
+  
+
+    userInput.value = '';
+  
+
+    chatBox.scrollTop = chatBox.scrollHeight;
+  
+
+    try {
+      const response = await fetch('/chat', {
+        method: 'POST',
         headers: {
-            "Content-Type": "application/json"
+          'Content-Type': 'application/json'
         },
         body: JSON.stringify({ message: message })
-    })
-    .then(response => response.json())
-    .then(data => appendMessage("Bot", data.reply))
-    .catch(error => console.error("Error:", error));
-}
+      });
+  
+      const data = await response.json();
+  
+
+      const botMsg = document.createElement('div');
+      botMsg.className = 'message bot-message';
+      botMsg.textContent = data.reply;
+      chatBox.appendChild(botMsg);
+  
+      chatBox.scrollTop = chatBox.scrollHeight;
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  }
+  
