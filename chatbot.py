@@ -7,15 +7,15 @@ from datetime import datetime
 
 app = Flask(__name__)
 
-
+# Load DialoGPT model and tokenizer
 tokenizer = AutoTokenizer.from_pretrained("microsoft/DialoGPT-small")
 model = AutoModelForCausalLM.from_pretrained("microsoft/DialoGPT-small")
 
-
+# Load product database
 with open("data/products.json", "r") as f:
     product_data = json.load(f)
 
-
+# Track conversation history per user and cart
 user_histories = {}
 user_carts = {}
 
@@ -40,8 +40,10 @@ def match_product_keywords(message):
     message = preprocess_text(message)
     matched = []
     for product in product_data:
-        if any(keyword in message for keyword in product["keywords"]):
-            matched.append(product)
+        for keyword in product["keywords"]:
+            if keyword in message:
+                matched.append(product)
+                break
     return matched
 
 def time_based_greeting():
@@ -53,6 +55,51 @@ def time_based_greeting():
     else:
         return "Good evening! Need help finding the right product?"
 
+def add_to_cart(user_id, product_name):
+    if user_id not in user_carts:
+        user_carts[user_id] = []
+    for product in product_data:
+        if preprocess_text(product["name"]) in preprocess_text(product_name):
+            user_carts[user_id].append(product)
+            return f"Added {product['name']} to your cart."
+    return "Sorry, I couldn't find that product to add."
+
+def remove_from_cart(user_id, product_name):
+    if user_id in user_carts:
+        for item in list(user_carts[user_id]):
+            if preprocess_text(item["name"]) in preprocess_text(product_name):
+                user_carts[user_id].remove(item)
+                return f"Removed {item['name']} from your cart."
+    return f"{product_name} is not in your cart."
+
+def show_cart(user_id):
+    cart_items = user_carts.get(user_id, [])
+    if cart_items:
+        seen = set()
+        unique_cart = []
+        for item in cart_items:
+            identifier = item['name']
+            if identifier not in seen:
+                seen.add(identifier)
+                unique_cart.append(item)
+        lines = [f"{item['name']} - {item['price']}" for item in unique_cart]
+        return "Your cart contains:\n" + "\n".join(lines)
+    return "Your cart is empty."
+
+def handle_cart_commands(message, user_id):
+    message = preprocess_text(message)
+    if "show cart" in message or "view cart" in message:
+        return show_cart(user_id)
+    if "add" in message:
+        for product in product_data:
+            if any(keyword in message for keyword in product["keywords"]):
+                return add_to_cart(user_id, product["name"])
+    if "remove" in message:
+        for product in product_data:
+            if any(keyword in message for keyword in product["keywords"]):
+                return remove_from_cart(user_id, product["name"])
+    return None
+
 @app.route('/')
 def home():
     return render_template("chat.html")
@@ -63,44 +110,19 @@ def chat():
     user_message = data.get("message", "")
     user_id = data.get("user_id", "default_user")
 
-    if user_id not in user_carts:
-        user_carts[user_id] = []
-
-    message = preprocess_text(user_message)
-
-    if message in ["hi", "hello"]:
+    if user_message.strip().lower() in ["hi", "hello"]:
         bot_reply = time_based_greeting()
-    elif message == "show cart":
-        cart = user_carts[user_id]
-        if cart:
-            items = "\n".join([f"- {item['name']} (₹{item['price']})" for item in cart])
-            bot_reply = f"Your cart contains:\n{items}"
-        else:
-            bot_reply = "Your cart is empty."
-    elif "add" in message:
-        matched_products = match_product_keywords(message)
-        if matched_products:
-            user_carts[user_id].append(matched_products[0])
-            bot_reply = f"{matched_products[0]['name']} has been added to your cart."
-        else:
-            bot_reply = "I couldn't find a product to add."
-    elif "remove" in message:
-        matched_products = match_product_keywords(message)
-        if matched_products:
-            try:
-                user_carts[user_id].remove(matched_products[0])
-                bot_reply = f"{matched_products[0]['name']} has been removed from your cart."
-            except ValueError:
-                bot_reply = "That product is not in your cart."
-        else:
-            bot_reply = "I couldn't find a product to remove."
     else:
-        matched_products = match_product_keywords(user_message)
-        if matched_products:
-            product = matched_products[0]
-            bot_reply = f"{product['name']} - {product['description']}. Price: ₹{product.get('price', 'N/A')}"
+        cart_response = handle_cart_commands(user_message, user_id)
+        if cart_response:
+            bot_reply = cart_response
         else:
-            bot_reply = get_ai_reply(user_message, user_id)
+            matched_products = match_product_keywords(user_message)
+            if matched_products:
+                product = matched_products[0]
+                bot_reply = f"{product['name']} - {product['description']}. Price: {product.get('price', 'INR N/A')}"
+            else:
+                bot_reply = get_ai_reply(user_message, user_id)
 
     return jsonify({"reply": bot_reply})
 

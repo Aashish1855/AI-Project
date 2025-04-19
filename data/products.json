@@ -1,152 +1,152 @@
 [
   {
-    "name": "HydraSoft Lip Balm",
-    "description": "Nourishing balm for dry and chapped lips with shea butter and vitamin E.",
-    "price": "₹199",
-    "keywords": ["dry lips", "chapped lips", "lip balm", "hydrating lips"]
+    "name": "HydraGlow Lip Balm",
+    "description": "A deeply hydrating balm for dry and chapped lips.",
+    "keywords": ["dry lips", "chapped lips", "hydrating", "lip care"],
+    "price": "INR 199"
   },
   {
-    "name": "MatteMe Lipstick",
-    "description": "Long-lasting matte lipstick suitable for oily lips and hot weather.",
-    "price": "₹499",
-    "keywords": ["matte lipstick", "oily lips", "long-lasting", "non-sticky"]
+    "name": "MatteMe Liquid Lipstick",
+    "description": "Long-lasting matte lipstick perfect for oily or humid skin.",
+    "keywords": ["matte", "long-lasting", "lipstick", "oily skin"],
+    "price": "INR 499"
   },
   {
-    "name": "GlowFix Foundation",
-    "description": "Lightweight foundation for dry skin with a radiant finish.",
-    "price": "₹799",
-    "keywords": ["foundation", "dry skin", "glow", "radiant"]
+    "name": "GlowMax Highlighter",
+    "description": "Adds a radiant glow for party-ready looks.",
+    "keywords": ["highlighter", "glow", "party", "shiny"],
+    "price": "INR 699"
   },
   {
-    "name": "StayMatte Foundation",
-    "description": "Matte finish foundation for oily and acne-prone skin.",
-    "price": "₹799",
-    "keywords": ["foundation", "oily skin", "acne", "matte"]
+    "name": "Velvet Touch Foundation",
+    "description": "Full coverage foundation suitable for dry skin.",
+    "keywords": ["foundation", "full coverage", "dry skin", "makeup base"],
+    "price": "INR 899"
   },
   {
-    "name": "HydraCover Concealer",
-    "description": "Moisturizing concealer that covers dark circles and fine lines.",
-    "price": "₹549",
-    "keywords": ["concealer", "dry under eyes", "dark circles"]
+    "name": "Oil-Control Primer",
+    "description": "Keeps makeup intact and controls excess oil.",
+    "keywords": ["primer", "oil control", "oily skin", "sweat proof"],
+    "price": "INR 399"
   },
   {
-    "name": "ClearSkin BB Cream",
-    "description": "All-in-one BB cream for daily use on combination skin.",
-    "price": "₹399",
-    "keywords": ["bb cream", "combination skin", "light coverage"]
+    "name": "AquaBliss Moisturizer",
+    "description": "Lightweight hydration for all-day freshness.",
+    "keywords": ["moisturizer", "dry skin", "hydration", "day cream"],
+    "price": "INR 349"
   },
   {
-    "name": "ShineBright Highlighter",
-    "description": "Powder highlighter for a natural glow.",
-    "price": "₹499",
-    "keywords": ["highlighter", "glow", "shiny look"]
+    "name": "EverCurl Mascara",
+    "description": "Smudge-proof mascara for long curled lashes.",
+    "keywords": ["mascara", "curl", "lashes", "smudge proof"],
+    "price": "INR 349"
   },
   {
-    "name": "OilControl Compact",
-    "description": "Pressed powder for a shine-free, matte finish.",
-    "price": "₹299",
-    "keywords": ["compact", "oily skin", "shine control"]
+    "name": "Natural Brow Gel",
+    "description": "Defines and shapes your eyebrows with a natural finish.",
+    "keywords": ["brow", "eyebrows", "gel", "natural look"],
+    "price": "INR 279"
   },
   {
-    "name": "SoftTouch Blush",
-    "description": "Smooth blush for a rosy, natural look.",
-    "price": "₹399",
-    "keywords": ["blush", "rosy cheeks", "natural look"]
+    "name": "SilkBlush Cheek Tint",
+    "description": "Gives your cheeks a natural pink glow.",
+    "keywords": ["blush", "cheeks", "pink", "tint"],
+    "price": "INR 399"
   },
   {
-    "name": "DramaEyes Kajal",
-    "description": "Intense black kajal for bold, smudge-proof eyes.",
-    "price": "₹199",
-    "keywords": ["kajal", "bold eyes", "smudge proof"]
+    "name": "Smooth Base BB Cream",
+    "description": "Lightweight coverage with SPF 15 protection.",
+    "keywords": ["bb cream", "light coverage", "spf", "sun protection"],
+    "price": "INR 499"
   },
   {
-    "name": "LashLift Mascara",
-    "description": "Volumizing mascara for fuller and longer lashes.",
-    "price": "₹499",
-    "keywords": ["mascara", "long lashes", "volume"]
+    "name": "NoPore Primer",
+    "description": "Blurs pores and provides a smooth base.",
+    "keywords": ["primer", "pores", "blur", "smoothing"],
+    "price": "INR 450"
   },
   {
-    "name": "NudeGlow Lipstick",
-    "description": "Creamy nude lipstick for everyday wear.",
-    "price": "₹449",
-    "keywords": ["nude lipstick", "daily lipstick", "smooth lips"]
+    "name": "StayFix Setting Spray",
+    "description": "Locks in your makeup for up to 12 hours.",
+    "keywords": ["setting spray", "long-lasting", "fixer", "sweat proof"],
+    "price": "INR 349"
   },
   {
-    "name": "BerryPop Lip Crayon",
-    "description": "Highly pigmented lip crayon in berry shades.",
-    "price": "₹349",
-    "keywords": ["lip crayon", "berry", "bold lips"]
+    "name": "LumiSkin Compact Powder",
+    "description": "Controls shine with a soft matte finish.",
+    "keywords": ["compact", "powder", "shine control", "matte"],
+    "price": "INR 549"
   },
   {
-    "name": "BrowDefine Pencil",
-    "description": "Eyebrow pencil for defined and filled brows.",
-    "price": "₹299",
-    "keywords": ["eyebrow", "brow pencil", "brow"]
+    "name": "BoldEyes Eyeliner",
+    "description": "Jet black eyeliner with precision tip.",
+    "keywords": ["eyeliner", "black", "precision", "smudge-proof"],
+    "price": "INR 299"
   },
   {
-    "name": "DewyMist Setting Spray",
-    "description": "Hydrating setting spray for a dewy finish.",
-    "price": "₹399",
-    "keywords": ["setting spray", "dewy look", "hydrating"]
+    "name": "DeepClean Micellar Water",
+    "description": "Removes makeup gently while cleansing the skin.",
+    "keywords": ["micellar", "makeup remover", "cleanser", "gentle"],
+    "price": "INR 299"
   },
   {
-    "name": "ProBlend Beauty Blender",
-    "description": "Soft beauty blender for smooth makeup blending.",
-    "price": "₹199",
-    "keywords": ["beauty blender", "makeup sponge", "blending"]
+    "name": "TropicalEyes Shadow Palette",
+    "description": "12 bold shades inspired by tropical vibes.",
+    "keywords": ["eyeshadow", "palette", "colorful", "party makeup"],
+    "price": "INR 799"
   },
   {
-    "name": "CleanSkin Micellar Water",
-    "description": "Gentle micellar water for effective makeup removal.",
-    "price": "₹299",
-    "keywords": ["makeup remover", "micellar water", "clean skin"]
+    "name": "Satin Lips Gloss",
+    "description": "Non-sticky gloss for shiny and moisturized lips.",
+    "keywords": ["lip gloss", "shine", "moisturized", "glossy"],
+    "price": "INR 229"
   },
   {
-    "name": "LipScrub Sugar Kiss",
-    "description": "Exfoliating lip scrub for soft and smooth lips.",
-    "price": "₹249",
-    "keywords": ["lip scrub", "dry lips", "exfoliate"]
+    "name": "FlawFix Concealer",
+    "description": "Covers blemishes and dark circles effortlessly.",
+    "keywords": ["concealer", "dark circles", "blemishes", "spot cover"],
+    "price": "INR 549"
   },
   {
-    "name": "GlowSerum Primer",
-    "description": "Brightening primer serum for a smooth base.",
-    "price": "₹599",
-    "keywords": ["primer", "glow", "smooth base"]
+    "name": "Herbal Kajal Stick",
+    "description": "Made with herbal ingredients for daily use.",
+    "keywords": ["kajal", "herbal", "daily", "natural"],
+    "price": "INR 199"
   },
   {
-    "name": "MatteShield Primer",
-    "description": "Oil-control primer for a matte finish.",
-    "price": "₹599",
-    "keywords": ["primer", "oily skin", "matte"]
+    "name": "GlowBoost Serum",
+    "description": "Boosts skin glow and reduces dullness.",
+    "keywords": ["serum", "glow", "brightening", "dull skin"],
+    "price": "INR 649"
   },
   {
-    "name": "RoseTint Lip & Cheek",
-    "description": "Dual-use tint for lips and cheeks in rosy pink.",
-    "price": "₹349",
-    "keywords": ["lip tint", "cheek tint", "rose"]
+    "name": "MatteChic Lip Crayon",
+    "description": "Smooth matte finish in a travel-friendly crayon.",
+    "keywords": ["lip crayon", "matte", "travel", "crayon"],
+    "price": "INR 349"
   },
   {
-    "name": "CocoaButter Lip Mask",
-    "description": "Overnight lip mask for intense hydration.",
-    "price": "₹299",
-    "keywords": ["lip mask", "dry lips", "hydrating"]
+    "name": "RoseWater Mist",
+    "description": "Soothing mist that refreshes and hydrates skin.",
+    "keywords": ["rose", "mist", "hydration", "refresh"],
+    "price": "INR 279"
   },
   {
-    "name": "FreshFace Face Wash",
-    "description": "Gentle face wash for all skin types.",
-    "price": "₹199",
-    "keywords": ["face wash", "cleanser", "daily wash"]
+    "name": "NightGlow Sleeping Mask",
+    "description": "Overnight mask that repairs and hydrates your skin.",
+    "keywords": ["sleeping mask", "night cream", "hydration", "repair"],
+    "price": "INR 599"
   },
   {
-    "name": "OilFree Day Cream",
-    "description": "Non-greasy day cream for oily skin.",
-    "price": "₹349",
-    "keywords": ["day cream", "oily skin", "moisturizer"]
+    "name": "UltraFix Makeup Sponge",
+    "description": "Blends makeup effortlessly for a smooth finish.",
+    "keywords": ["makeup sponge", "blender", "smooth finish", "tool"],
+    "price": "INR 199"
   },
   {
-    "name": "NourishNight Cream",
-    "description": "Hydrating night cream for dry skin.",
-    "price": "₹399",
-    "keywords": ["night cream", "dry skin", "hydrating"]
+    "name": "PerfectMatch Foundation Stick",
+    "description": "Easy-to-apply stick for medium to full coverage.",
+    "keywords": ["foundation stick", "full coverage", "easy use", "travel"],
+    "price": "INR 649"
   }
 ]
