@@ -1,43 +1,29 @@
 async function sendMessage() {
-    const userInput = document.getElementById('user-input');
-    const chatBox = document.getElementById('chat-box');
-    const message = userInput.value.trim();
-  
-    if (!message) return;
-  
+  const input = document.getElementById("user-input");
+  const message = input.value.trim();
+  if (!message) return;
 
-    const userMsg = document.createElement('div');
-    userMsg.className = 'message user-message';
-    userMsg.textContent = message;
-    chatBox.appendChild(userMsg);
-  
+  addMessage("You", message, "user");
+  input.value = "";
 
-    userInput.value = '';
-  
+  const response = await fetch("/chat", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+          message: message,
+          user_id: "user1"
+      })
+  });
 
-    chatBox.scrollTop = chatBox.scrollHeight;
-  
+  const data = await response.json();
+  addMessage("ShadeMate", data.reply, "bot");
+}
 
-    try {
-      const response = await fetch('/chat', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ message: message })
-      });
-  
-      const data = await response.json();
-  
-
-      const botMsg = document.createElement('div');
-      botMsg.className = 'message bot-message';
-      botMsg.textContent = data.reply;
-      chatBox.appendChild(botMsg);
-  
-      chatBox.scrollTop = chatBox.scrollHeight;
-    } catch (error) {
-      console.error('Error:', error);
-    }
-  }
-  
+function addMessage(sender, text, cssClass) {
+  const chatBox = document.getElementById("chat-box");
+  const message = document.createElement("div");
+  message.classList.add("message", cssClass);
+  message.innerHTML = `<strong>${sender}:</strong> ${text}`;
+  chatBox.appendChild(message);
+  chatBox.scrollTop = chatBox.scrollHeight;
+}

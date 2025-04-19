@@ -1,44 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Valexa - ShadeMate</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
-  <style>
-    body {
-      display: flex;
-      justify-content: space-evenly;
-      align-items: flex-start;
-      padding: 40px;
-      background: linear-gradient(to right, purple, #1a1a1a);
-      font-family: Arial, sans-serif;
-    }
-    .chat-container {
-      width: 45%;
-    }
-    iframe {
-      border: none;
-      border-radius: 10px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShadeMate - Makeup Bot</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-  <div class="chat-container">
-    <div class="chat-header">ShadeMate (AI)</div>
-    <div class="chat-box" id="chat-box"></div>
-    <div class="chat-input">
-      <input type="text" id="user-input" placeholder="Type your message..." />
-      <button onclick="sendMessage()">Send</button>
+    <div class="chat-container">
+        <div class="chat-header">ShadeMate - Your Virtual Makeup Advisor</div>
+        <div class="chat-box" id="chat-box"></div>
+        <div class="chat-input">
+            <input type="text" id="user-input" placeholder="Type your message..." autofocus>
+            <button onclick="sendMessage()">Send</button>
+        </div>
     </div>
-  </div>
-  <iframe 
-    width="350" 
-    height="430" 
-    allow="microphone;" 
-    src="https://console.dialogflow.com/api-client/demo/embedded/d33e9d66-78a9-450e-898d-9f0ff42fd35e">
-  </iframe>
-
-  <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>

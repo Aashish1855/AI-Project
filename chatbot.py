@@ -7,14 +7,17 @@ from datetime import datetime
 
 app = Flask(__name__)
 
+
 tokenizer = AutoTokenizer.from_pretrained("microsoft/DialoGPT-small")
 model = AutoModelForCausalLM.from_pretrained("microsoft/DialoGPT-small")
+
 
 with open("data/products.json", "r") as f:
     product_data = json.load(f)
 
 
 user_histories = {}
+user_carts = {}
 
 def preprocess_text(text):
     return re.sub(r"[^a-zA-Z0-9 ]", "", text.lower())
@@ -60,20 +63,46 @@ def chat():
     user_message = data.get("message", "")
     user_id = data.get("user_id", "default_user")
 
-    if user_message.strip().lower() in ["hi", "hello"]:
+    if user_id not in user_carts:
+        user_carts[user_id] = []
+
+    message = preprocess_text(user_message)
+
+    if message in ["hi", "hello"]:
         bot_reply = time_based_greeting()
-    elif user_message.strip().lower() not in ["hi", "hello"]:
+    elif message == "show cart":
+        cart = user_carts[user_id]
+        if cart:
+            items = "\n".join([f"- {item['name']} (₹{item['price']})" for item in cart])
+            bot_reply = f"Your cart contains:\n{items}"
+        else:
+            bot_reply = "Your cart is empty."
+    elif "add" in message:
+        matched_products = match_product_keywords(message)
+        if matched_products:
+            user_carts[user_id].append(matched_products[0])
+            bot_reply = f"{matched_products[0]['name']} has been added to your cart."
+        else:
+            bot_reply = "I couldn't find a product to add."
+    elif "remove" in message:
+        matched_products = match_product_keywords(message)
+        if matched_products:
+            try:
+                user_carts[user_id].remove(matched_products[0])
+                bot_reply = f"{matched_products[0]['name']} has been removed from your cart."
+            except ValueError:
+                bot_reply = "That product is not in your cart."
+        else:
+            bot_reply = "I couldn't find a product to remove."
+    else:
         matched_products = match_product_keywords(user_message)
         if matched_products:
             product = matched_products[0]
-            bot_reply = f"{product['name']} - {product['description']}. Price: {product.get('price', 'N/A')}."
+            bot_reply = f"{product['name']} - {product['description']}. Price: ₹{product.get('price', 'N/A')}"
         else:
             bot_reply = get_ai_reply(user_message, user_id)
-    else:
-        bot_reply="Sorry can not understand it"
 
     return jsonify({"reply": bot_reply})
-
 
 if __name__ == '__main__':
     app.run(debug=True)

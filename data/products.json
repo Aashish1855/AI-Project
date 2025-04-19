@@ -1,44 +1,152 @@
 [
   {
-    "name": "Velvet Matte Lipstick",
-    "description": "A rich, long-lasting matte lipstick with a creamy texture.",
-    "keywords": ["lipstick", "matte", "velvet", "lips", "lip color"],
-    "price": "$12.99"
+    "name": "HydraSoft Lip Balm",
+    "description": "Nourishing balm for dry and chapped lips with shea butter and vitamin E.",
+    "price": "₹199",
+    "keywords": ["dry lips", "chapped lips", "lip balm", "hydrating lips"]
   },
   {
-    "name": "Glow Foundation",
-    "description": "Lightweight foundation that gives a dewy, radiant finish.",
-    "keywords": ["foundation", "glow", "dewy", "base", "makeup base"],
-    "price": "$18.50"
+    "name": "MatteMe Lipstick",
+    "description": "Long-lasting matte lipstick suitable for oily lips and hot weather.",
+    "price": "₹499",
+    "keywords": ["matte lipstick", "oily lips", "long-lasting", "non-sticky"]
   },
   {
-    "name": "Hydra Moisturizer",
-    "description": "Deep hydration for all skin types, lasts 24 hours.",
-    "keywords": ["moisturizer", "cream", "hydration", "lotion", "skin care"],
-    "price": "$14.00"
+    "name": "GlowFix Foundation",
+    "description": "Lightweight foundation for dry skin with a radiant finish.",
+    "price": "₹799",
+    "keywords": ["foundation", "dry skin", "glow", "radiant"]
   },
   {
-    "name": "Kohl Eye Liner",
-    "description": "Smudge-proof kohl liner for bold eye looks.",
-    "keywords": ["kohl", "eyeliner", "eye", "liner", "smudge proof"],
-    "price": "$9.99"
+    "name": "StayMatte Foundation",
+    "description": "Matte finish foundation for oily and acne-prone skin.",
+    "price": "₹799",
+    "keywords": ["foundation", "oily skin", "acne", "matte"]
   },
   {
-    "name": "Blush Pop",
-    "description": "Highly pigmented blush that blends like a dream.",
-    "keywords": ["blush", "cheeks", "pink", "rosy", "makeup blush"],
-    "price": "$10.75"
+    "name": "HydraCover Concealer",
+    "description": "Moisturizing concealer that covers dark circles and fine lines.",
+    "price": "₹549",
+    "keywords": ["concealer", "dry under eyes", "dark circles"]
   },
   {
-    "name": "Lash Boost Mascara",
-    "description": "Lengthens and volumizes your lashes with one swipe.",
-    "keywords": ["mascara", "lashes", "lash", "volume", "lengthen"],
-    "price": "$11.50"
+    "name": "ClearSkin BB Cream",
+    "description": "All-in-one BB cream for daily use on combination skin.",
+    "price": "₹399",
+    "keywords": ["bb cream", "combination skin", "light coverage"]
   },
   {
-    "name": "Shimmer Highlighter",
-    "description": "Get that perfect glow with our fine shimmer highlighter.",
-    "keywords": ["highlighter", "glow", "shimmer", "shine", "highlight"],
-    "price": "$13.30"
+    "name": "ShineBright Highlighter",
+    "description": "Powder highlighter for a natural glow.",
+    "price": "₹499",
+    "keywords": ["highlighter", "glow", "shiny look"]
+  },
+  {
+    "name": "OilControl Compact",
+    "description": "Pressed powder for a shine-free, matte finish.",
+    "price": "₹299",
+    "keywords": ["compact", "oily skin", "shine control"]
+  },
+  {
+    "name": "SoftTouch Blush",
+    "description": "Smooth blush for a rosy, natural look.",
+    "price": "₹399",
+    "keywords": ["blush", "rosy cheeks", "natural look"]
+  },
+  {
+    "name": "DramaEyes Kajal",
+    "description": "Intense black kajal for bold, smudge-proof eyes.",
+    "price": "₹199",
+    "keywords": ["kajal", "bold eyes", "smudge proof"]
+  },
+  {
+    "name": "LashLift Mascara",
+    "description": "Volumizing mascara for fuller and longer lashes.",
+    "price": "₹499",
+    "keywords": ["mascara", "long lashes", "volume"]
+  },
+  {
+    "name": "NudeGlow Lipstick",
+    "description": "Creamy nude lipstick for everyday wear.",
+    "price": "₹449",
+    "keywords": ["nude lipstick", "daily lipstick", "smooth lips"]
+  },
+  {
+    "name": "BerryPop Lip Crayon",
+    "description": "Highly pigmented lip crayon in berry shades.",
+    "price": "₹349",
+    "keywords": ["lip crayon", "berry", "bold lips"]
+  },
+  {
+    "name": "BrowDefine Pencil",
+    "description": "Eyebrow pencil for defined and filled brows.",
+    "price": "₹299",
+    "keywords": ["eyebrow", "brow pencil", "brow"]
+  },
+  {
+    "name": "DewyMist Setting Spray",
+    "description": "Hydrating setting spray for a dewy finish.",
+    "price": "₹399",
+    "keywords": ["setting spray", "dewy look", "hydrating"]
+  },
+  {
+    "name": "ProBlend Beauty Blender",
+    "description": "Soft beauty blender for smooth makeup blending.",
+    "price": "₹199",
+    "keywords": ["beauty blender", "makeup sponge", "blending"]
+  },
+  {
+    "name": "CleanSkin Micellar Water",
+    "description": "Gentle micellar water for effective makeup removal.",
+    "price": "₹299",
+    "keywords": ["makeup remover", "micellar water", "clean skin"]
+  },
+  {
+    "name": "LipScrub Sugar Kiss",
+    "description": "Exfoliating lip scrub for soft and smooth lips.",
+    "price": "₹249",
+    "keywords": ["lip scrub", "dry lips", "exfoliate"]
+  },
+  {
+    "name": "GlowSerum Primer",
+    "description": "Brightening primer serum for a smooth base.",
+    "price": "₹599",
+    "keywords": ["primer", "glow", "smooth base"]
+  },
+  {
+    "name": "MatteShield Primer",
+    "description": "Oil-control primer for a matte finish.",
+    "price": "₹599",
+    "keywords": ["primer", "oily skin", "matte"]
+  },
+  {
+    "name": "RoseTint Lip & Cheek",
+    "description": "Dual-use tint for lips and cheeks in rosy pink.",
+    "price": "₹349",
+    "keywords": ["lip tint", "cheek tint", "rose"]
+  },
+  {
+    "name": "CocoaButter Lip Mask",
+    "description": "Overnight lip mask for intense hydration.",
+    "price": "₹299",
+    "keywords": ["lip mask", "dry lips", "hydrating"]
+  },
+  {
+    "name": "FreshFace Face Wash",
+    "description": "Gentle face wash for all skin types.",
+    "price": "₹199",
+    "keywords": ["face wash", "cleanser", "daily wash"]
+  },
+  {
+    "name": "OilFree Day Cream",
+    "description": "Non-greasy day cream for oily skin.",
+    "price": "₹349",
+    "keywords": ["day cream", "oily skin", "moisturizer"]
+  },
+  {
+    "name": "NourishNight Cream",
+    "description": "Hydrating night cream for dry skin.",
+    "price": "₹399",
+    "keywords": ["night cream", "dry skin", "hydrating"]
   }
 ]
