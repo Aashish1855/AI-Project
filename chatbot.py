@@ -7,15 +7,15 @@ from datetime import datetime
 
 app = Flask(__name__)
 
-# Load DialoGPT model and tokenizer
+
 tokenizer = AutoTokenizer.from_pretrained("microsoft/DialoGPT-small")
 model = AutoModelForCausalLM.from_pretrained("microsoft/DialoGPT-small")
 
-# Load product database
+
 with open("data/products.json", "r") as f:
     product_data = json.load(f)
 
-# Track conversation history per user and cart
+
 user_histories = {}
 user_carts = {}
 
