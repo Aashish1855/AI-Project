@@ -7,14 +7,11 @@ from datetime import datetime
 
 app = Flask(__name__)
 
-
 tokenizer = AutoTokenizer.from_pretrained("microsoft/DialoGPT-small")
 model = AutoModelForCausalLM.from_pretrained("microsoft/DialoGPT-small")
 
-
 with open("data/products.json", "r") as f:
     product_data = json.load(f)
-
 
 user_histories = {}
 user_carts = {}
