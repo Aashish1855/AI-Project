@@ -6,6 +6,8 @@ import re
 from datetime import datetime
 
 app = Flask(__name__)
+import os
+os.environ["TF_ENABLE_ONEDNN_OPTS"] = "0"
 
 tokenizer = AutoTokenizer.from_pretrained("microsoft/DialoGPT-small")
 model = AutoModelForCausalLM.from_pretrained("microsoft/DialoGPT-small")
@@ -32,6 +34,21 @@ def get_ai_reply(user_input, user_id="user"):
     user_histories[user_id] = output
     response = tokenizer.decode(output[:, bot_input_ids.shape[-1]:][0], skip_special_tokens=True)
     return response
+
+def recommend_products(user_id):
+    cart_items = user_carts.get(user_id, [])
+    if not cart_items:
+        return "You have no items in your cart yet. How about exploring some trending products?"
+
+    recommendations = []
+    for item in cart_items:
+        for product in product_data:
+            if item['category'] == product['category'] and item['name'] != product['name']:
+                recommendations.append(product)
+    
+    if recommendations:
+        return f"Here are some products you might like: {', '.join([p['name'] for p in recommendations])}"
+    return "We couldn't find any personalized recommendations right now."
 
 def match_product_keywords(message):
     message = preprocess_text(message)
@@ -110,16 +127,25 @@ def chat():
     if user_message.strip().lower() in ["hi", "hello"]:
         bot_reply = time_based_greeting()
     else:
-        cart_response = handle_cart_commands(user_message, user_id)
-        if cart_response:
-            bot_reply = cart_response
-        else:
+        if "recommend" in user_message.lower() or "suggest" in user_message.lower():
             matched_products = match_product_keywords(user_message)
             if matched_products:
                 product = matched_products[0]
                 bot_reply = f"{product['name']} - {product['description']}. Price: {product.get('price', 'INR N/A')}"
             else:
-                bot_reply = get_ai_reply(user_message, user_id)
+                bot_reply = recommend_products(user_id)
+
+        else:
+            cart_response = handle_cart_commands(user_message, user_id)
+            if cart_response:
+                bot_reply = cart_response
+            else:
+                matched_products = match_product_keywords(user_message)
+                if matched_products:
+                    product = matched_products[0]
+                    bot_reply = f"{product['name']} - {product['description']}. Price: {product.get('price', 'INR N/A')}"
+                else:
+                    bot_reply = get_ai_reply(user_message, user_id)
 
     return jsonify({"reply": bot_reply})
 
